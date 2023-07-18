@@ -26,9 +26,9 @@
     
     <link name="spacecraft">
       <inertial>
-        <origin xyz="-0.1 0 0.07" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="50"/>
-        <inertia ixx="0.05"  ixy="0"  ixz="0" iyy="0.06" iyz="0" izz="0.03" />
+        <inertia ixx="5"  ixy="5"  ixz="5" iyy="5" iyz="5" izz="5" />
       </inertial>
       
       <visual>
@@ -40,9 +40,9 @@
       </visual>
       
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 1.570795 0"/>
         <geometry>
-          <cylinder radius="1" length="1"/>
+          <cylinder radius="0.5" length="1"/>
         </geometry>
         <material name="Grey"/>
       </collision>
@@ -50,14 +50,14 @@
       <self_collision_checking>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <capsule radius="0.15" length="0.25"/>
+          <cylinder radius="0.5" length="1"/>
         </geometry>
       </self_collision_checking>
       
     </link>
     
     <!-- joint between link_0 and link_1 -->
-    <joint name="${robot_name}_joint_0" type="floating">
+    <joint name="${robot_name}_joint_0" type="fixed">
       <parent link="spacecraft"/>
       <child link="${robot_name}_link_0"/>
       <origin xyz="0 0 0.5" rpy="0 0 0"/>
