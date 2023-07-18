@@ -3,7 +3,7 @@
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
   <!--Import the lbr iiwa macro -->
-  <xacro:include filename="$(find iiwa_description)/urdf/iiwa7.xacro"/>
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa7_withspacecraft.xacro"/>
   
   <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
   <xacro:arg name="robot_name" default="iiwa"/>
