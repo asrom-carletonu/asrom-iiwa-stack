@@ -16,13 +16,107 @@
   <xacro:property name="max_velocity" value="10"/>
   
   <xacro:macro name="iiwa7" params="parent hardware_interface robot_name *origin">
-    
+
+  <!-- Gazebo force/torque sensors at each joint -->
+
+  <gazebo reference="iiwa_joint_1">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor1_topic</topicName>
+        <jointName>iiwa_joint_1</jointName>
+    </plugin>
+  </gazebo>  
+
+  <gazebo reference="iiwa_joint_2">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor2_topic</topicName>
+        <jointName>iiwa_joint_2</jointName>
+    </plugin>
+  </gazebo>  
+  <gazebo reference="iiwa_joint_3">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor3_topic</topicName>
+        <jointName>iiwa_joint_3</jointName>
+    </plugin>
+  </gazebo>  
+  <gazebo reference="iiwa_joint_4">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor4_topic</topicName>
+        <jointName>iiwa_joint_4</jointName>
+    </plugin>
+  </gazebo>  
+  <gazebo reference="iiwa_joint_5">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor5_topic</topicName>
+        <jointName>iiwa_joint_5</jointName>
+    </plugin>
+  </gazebo>  
+  <gazebo reference="iiwa_joint_6">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor6_topic</topicName>
+        <jointName>iiwa_joint_6</jointName>
+    </plugin>
+  </gazebo>  
+  
+  <gazebo reference="iiwa_joint_7">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor7_topic</topicName>
+        <jointName>iiwa_joint_7</jointName>
+    </plugin>
+  </gazebo>  
+
+<gazebo reference="world_iiwa_joint">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>100.0</updateRate>
+        <topicName>ft_sensor_topic</topicName>
+        <jointName>world_iiwa_joint</jointName>
+    </plugin>
+</gazebo>
+
     <!--joint between {parent} and link_0-->
-    <!-- <joint name="${parent}_${robot_name}_joint" type="fixed">
+    <joint name="${parent}_${robot_name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <parent link="${parent}"/>
       <child link="${robot_name}_link_0"/>
-    </joint> -->
+    </joint>
     
     <link name="${robot_name}_link_0">
       <inertial>
@@ -300,8 +394,8 @@
     <link name="${robot_name}_link_7">
       <inertial>
         <origin xyz="0 0 0.02" rpy="0 0 0"/>
-        <mass value="100"/>
-        <!-- <mass value="3.129"/> -->
+        <!-- <mass value="100"/> -->
+        <mass value="3.129"/>
         <inertia ixx="0.01464"  ixy="0.0005912"  ixz="0" iyy="0.01465" iyz="0" izz="0.002872" />
       </inertial>
       

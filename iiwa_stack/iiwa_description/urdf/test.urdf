@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot name="TestArm">
+    <link name="base">
+        <inertial>
+            <mass value="3"/>
+            <origin xyz="0.0 0.0 -0.5" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.1" ixy="0.1" ixz="0.1" iyy="0.1" iyz="0.1" izz="0.1"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.075" length="1"/>
+            </geometry>
+            <material name="Grey">
+                <color rgba="0.3 0.3 0.3 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.075" length="1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="testarm_link_1">
+        <inertial>
+            <mass value="3"/>
+            <origin xyz="0.0 0.0 -0.5" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="0.1" ixy="0.1" ixz="0.1" iyy="0.1" iyz="0.1" izz="0.1"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <cylinder radius="0.075" length="1"/>
+            </geometry>
+            <material name="Grey">
+                <color rgba="0.3 0.3 0.3 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.075" length="1"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_to_testarm_link_1" type="revolute">
+        <parent link="base"/>  
+        <child link="testarm_link_1"/>
+        <origin xyz="0.0 0.0 2" rpy="0.0 1.57 0.0"/>
+        <limit lower="-3.14" upper="3.14" effort="0" velocity="10"/>        
+    </joint>
+</robot>

@@ -3,19 +3,32 @@
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
   <!--Import the lbr iiwa macro -->
+
+  <!-- To import the floating spacecraft+iiwa -->
   <xacro:include filename="$(find iiwa_description)/urdf/iiwa7_withspacecraft.xacro"/>
+
+  <!-- To import the default iiwa -->
+  <!-- <xacro:include filename="$(find iiwa_description)/urdf/iiwa7.xacro"/> -->
+
+  <!-- To import the limp iiwa (TODO make limp iiwa urdf) -->
+  <!-- <xacro:include filename="$(find iiwa_description)/urdf/iiwa7_limp.xacro"/> -->
   
   <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
   <xacro:arg name="robot_name" default="iiwa"/>
   <xacro:arg name="origin_xyz" default="0 0 0"/>
   <xacro:arg name="origin_rpy" default="0 0 0"/>
   
-  <!-- Fix to world just for testing -->
+  <!-- Uncomment this line for fixing the robot to the world. Commented by default to have the robot floating -->
   <!-- <link name="world"/> -->
   
   <!--iiwa-->
-  <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="iiwa_link_0">
-    <origin xyz="$(arg origin_xyz)" rpy="$(arg origin_rpy)" />
+
+  <!-- <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="world"> -->
+  <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="world">
+  <!-- <xacro:iiwa7 robot_name="$(arg robot_name)" parent="iiwa_link_0"> -->
+
+  <!-- This changes where the robot is spawned -->
+    <origin xyz="0 0 1" rpy="0 0 0" />
   </xacro:iiwa7>
   
 </robot>
