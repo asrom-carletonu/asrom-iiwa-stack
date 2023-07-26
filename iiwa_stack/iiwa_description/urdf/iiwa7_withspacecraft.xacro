@@ -156,7 +156,7 @@
     <joint name="${robot_name}_joint_0" type="fixed">
       <parent link="spacecraft"/>
       <child link="${robot_name}_link_0"/>
-      <origin xyz="0 0 0.5" rpy="0 0 0"/>
+      <origin xyz="0 0 0.55" rpy="0 0 0"/>
     </joint>
 
     <link name="${robot_name}_link_0">
