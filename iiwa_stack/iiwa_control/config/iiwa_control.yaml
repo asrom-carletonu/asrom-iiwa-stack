@@ -44,6 +44,42 @@
     joint: iiwa_joint_7
     pid: {p: 1.0, i: 0.01, d: 0.1, i_clamp_min: -1000, i_clamp_max: 1000}
 
+# Joint Torque controllers
+  # EffortInterface_J1_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_1
+  #   pid: {p: 80.0, i: 10.0, d: 8.0, i_clamp_min: -1000, i_clamp_max: 1000}
+
+  # EffortInterface_J2_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_2
+  #   pid: {p: 80.0, i: 1000.0, d: 10.0, i_clamp_min: -1000, i_clamp_max: 1000}
+
+  # EffortInterface_J3_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_3
+  #   pid: {p: 80.0, i: 1.0, d: 0.5, i_clamp_min: -1000, i_clamp_max: 1000}
+
+  # EffortInterface_J4_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_4
+  #   pid: {p: 80.0, i: 10, d: 8.0, i_clamp_min: -1000, i_clamp_max: 1000}
+
+  # EffortInterface_J5_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_5
+  #   pid: {p: 30.0, i: 0.5, d: 1.0, i_clamp_min: -1000, i_clamp_max: 1000}
+
+  # EffortInterface_J6_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_6
+  #   pid: {p: 5.0, i: 0.1, d: 0.1, i_clamp_min: -1000, i_clamp_max: 1000}
+
+  # EffortInterface_J7_controller:
+  #   type: effort_controllers/JointEffortController
+  #   joint: iiwa_joint_7
+  #   pid: {p: 1.0, i: 0.01, d: 0.1, i_clamp_min: -1000, i_clamp_max: 1000}
+
   # Forward Position Controllers ---------------------------------------
   PositionJointInterface_J1_controller:
     type: position_controllers/JointPositionController
