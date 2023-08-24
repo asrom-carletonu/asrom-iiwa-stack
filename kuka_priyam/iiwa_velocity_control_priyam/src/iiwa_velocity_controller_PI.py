@@ -7,7 +7,7 @@ import time
 from iiwa_msgs.msg import JointVelocity, JointPosition
 
 class VelocityController():
-    KP=0.5
+    KP=0.1
     KI=0.000001
     I_SAT=1.0
     MIN_ERROR=-6
@@ -27,8 +27,8 @@ class VelocityController():
         self.integral=0
 
         #Start the Publishing action
-        self.pub=rospy.Publisher('/iiwa/dummy/command/JointVelocity', JointVelocity, queue_size=10)
-        # self.pub=rospy.Publisher('/iiwa/command/JointVelocity', JointVelocity, queue_size=10)
+        # self.pub=rospy.Publisher('/iiwa/dummy/command/JointVelocity', JointVelocity, queue_size=10)
+        self.pub=rospy.Publisher('/iiwa/command/JointVelocity', JointVelocity, queue_size=10)
         # self.r=rospy.Rate(self.PUBLISH_RATE)
         self.dur=rospy.Duration(0,100000000)
         self.sub=rospy.Subscriber('/iiwa/state/JointPosition', JointPosition, self.current_position_callback)
@@ -50,7 +50,7 @@ class VelocityController():
             self.raw_error=self.goal_position.position.a4 - self.current_position.position.a4 
             self.norm_error= 2 * (self.raw_error - self.MIN_ERROR) / (self.MAX_ERROR - self.MIN_ERROR) - 1
             self.integral += self.norm_error
-            self.command_velocity.velocity.a4 = self.KP * self.norm_error + self.KI * self.integral 
+            self.command_velocity.velocity.a4 = 0.05#self.KP * self.norm_error + self.KI * self.integral 
             print('%f' %self.integral, '%f' %self.norm_error, '%f' %self.command_velocity.velocity.a4)
 
             self.pub.publish(self.command_velocity)
