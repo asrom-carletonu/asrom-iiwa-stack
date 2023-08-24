@@ -11,7 +11,7 @@
     <!-- |    controllers for the single joints, using the "trajectory" argument.            | -->
     <!-- ===================================================================================== -->
     
-    <arg name="hardware_interface" default="PositionJointInterface" />
+    <arg name="hardware_interface" default="EffortJointInterface" />
     <arg name="robot_name" default="iiwa" />
     <arg name="model" default="iiwa7"/>
     <arg name="trajectory" default="true"/>
